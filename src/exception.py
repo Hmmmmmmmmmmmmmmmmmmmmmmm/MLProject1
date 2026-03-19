@@ -40,6 +40,8 @@ class CustomException(Exception):
         return self.error_msg
 
 
+
+# Testing Only:
 if __name__ == "__main__":
     log = get_logger(__name__)
     try:

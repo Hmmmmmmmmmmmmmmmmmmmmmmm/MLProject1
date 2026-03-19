@@ -54,6 +54,7 @@ def get_logger(logger_name: str = __name__) -> logging.Logger:
     return logger
 
 
+# Testing Only:
 if __name__ == "__main__":
     log = get_logger("TestLogger")
     log.info("This is an info message")
