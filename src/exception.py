@@ -1,5 +1,5 @@
 import sys
-from logger import get_logger
+from src.logger import get_logger
 
 def error_msg_details(error, error_detail:sys):
     '''
@@ -42,10 +42,10 @@ class CustomException(Exception):
 
 
 # Testing Only:
-if __name__ == "__main__":
-    log = get_logger(__name__)
-    try:
-        a = 1/0
-    except Exception as e:
-        log.error("Divided by Zero")
-        raise CustomException(e,sys)
+# if __name__ == "__main__":
+#     log = get_logger(__name__)
+#     try:
+#         a = 1/0
+#     except Exception as e:
+#         log.error("Divided by Zero")
+#         raise CustomException(e,sys)
