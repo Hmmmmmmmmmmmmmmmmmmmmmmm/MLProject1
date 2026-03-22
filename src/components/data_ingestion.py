@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+log = get_logger(__name__)
 
 @dataclass
 class DataIngestionConfig:
@@ -26,7 +27,6 @@ class DataIngestion:
         (stores data in artifacts directory)
         returns train and test paths
         '''
-        log = get_logger("DataIngestionLogger")
         log.info("Entered the Data Ingestion Component")
         try:
             # below part can be replaced with any
