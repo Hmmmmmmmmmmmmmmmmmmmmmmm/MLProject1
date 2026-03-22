@@ -1,11 +1,11 @@
 import os
 import sys
 
-from numpy.matlib import rand
+from src.components import data_transformation
 from src.exception import CustomException
 from src.logger import get_logger
 import pandas as pd
-
+from data_transformation import DataTransformation, DataTransformationConfig
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
@@ -84,6 +84,9 @@ class DataIngestion:
 
 if __name__ == '__main__':
     print('MEWMEW')
+    log.info("TESTING data transformation via data ingestion by passing test and train data")
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformer(train_data, test_data)
     print("MEWMEWMEMWEMWWEMWEM")
