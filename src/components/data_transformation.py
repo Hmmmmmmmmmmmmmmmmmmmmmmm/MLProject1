@@ -78,7 +78,10 @@ class DataTransformation:
             raise CustomException(e,sys)
 
     def initiate_data_transformer(self, train_path, test_path):
-
+        '''
+        Preprocessing of data and creation of preprocessor.pkl
+        Returns: np.c_ train array + test array + path(preprocessor_obj)
+        '''
         try:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)

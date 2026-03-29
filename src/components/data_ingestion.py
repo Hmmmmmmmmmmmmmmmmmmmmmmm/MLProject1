@@ -8,6 +8,7 @@ import pandas as pd
 from data_transformation import DataTransformation, DataTransformationConfig
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.model_training import ModelTrainConfig, ModelTrainer
 
 log = get_logger(__name__)
 
@@ -88,5 +89,12 @@ if __name__ == '__main__':
     obj = DataIngestion()
     train_data, test_data = obj.initiate_data_ingestion()
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformer(train_data, test_data)
+    train_arr, test_arr, p = data_transformation.initiate_data_transformer(train_data, test_data)
+    model_trainer = ModelTrainer()
+    print("Initiating model Training")
+    print(model_trainer.initiate_model_trainer(
+        train_array=train_arr,
+        test_array=test_arr,
+        preprocessor_path=p
+    ))
     print("MEWMEWMEMWEMWWEMWEM")
