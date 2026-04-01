@@ -96,7 +96,7 @@
         <div>
             <label>Gender</label>
             <select name="gender" required>
-                <option disabled selected>Select Gender</option>
+                <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
@@ -105,7 +105,7 @@
         <div>
             <label>Ethnicity</label>
             <select name="ethnicity" required>
-                <option disabled selected>Select Ethnicity</option>
+                <option value="" disabled selected>Select Ethnicity</option>
                 <option value="group A">Group A</option>
                 <option value="group B">Group B</option>
                 <option value="group C">Group C</option>
@@ -117,7 +117,7 @@
         <div>
             <label>Parental Education</label>
             <select name="parental_level_of_education" required>
-                <option disabled selected>Select Education</option>
+                <option value="" disabled selected>Select Education</option>
                 <option value="associate's degree">Associate's degree</option>
                 <option value="bachelor's degree">Bachelor's degree</option>
                 <option value="high school">High school</option>
@@ -130,7 +130,7 @@
         <div>
             <label>Lunch Type</label>
             <select name="lunch" required>
-                <option disabled selected>Select Lunch</option>
+                <option value="" disabled selected>Select Lunch</option>
                 <option value="free/reduced">Free/Reduced</option>
                 <option value="standard">Standard</option>
             </select>
@@ -139,7 +139,7 @@
         <div>
             <label>Test Preparation</label>
             <select name="test_preparation_course" required>
-                <option disabled selected>Select Course</option>
+                <option value="" disabled selected>Select Course</option>
                 <option value="none">None</option>
                 <option value="completed">Completed</option>
             </select>
@@ -170,6 +170,22 @@
 <script>
     // Extra safety check before form submission
     document.getElementById('predictForm').addEventListener('submit', function(e) {
+        const dropdowns = [
+            this.gender,
+            this.ethnicity,
+            this.parental_level_of_education,
+            this.lunch,
+            this.test_preparation_course
+        ];
+
+        for (const dropdown of dropdowns) {
+            if (!dropdown.value) {
+                alert("Please select all dropdown fields before submitting");
+                e.preventDefault();
+                return;
+            }
+        }
+
         const reading = parseFloat(this.reading_score.value);
         const writing = parseFloat(this.writing_score.value);
 
@@ -185,5 +201,4 @@
     });
 </script>
 </body>
-</html>
 </html>
