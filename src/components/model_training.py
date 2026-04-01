@@ -45,10 +45,12 @@ from src.utils import (
 
 
 log = get_logger(__name__)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 @dataclass
 class ModelTrainConfig:
-    trained_model_file_path:str = os.path.join("artifacts","model.pkl")
+    # trained_model_file_path:str = os.path.join("artifacts","model.pkl")
+    trained_model_file_path:str = os.path.join(PROJECT_ROOT, "artifacts", "model.pkl")
 
 class ModelTrainer:
     def __init__(self):
@@ -199,7 +201,8 @@ class ModelTrainer:
                 "best_params": tuned_results[best_model_name]["best_params"],
                 "timestamp": datetime.now().strftime("%Y%m%d_%H%M%S")
             }
-            summary_path = os.path.join("artifacts", "reports", f"best_model_summary_{summary['timestamp']}.json")
+            # summary_path = os.path.join("artifacts", "reports", f"best_model_summary_{summary['timestamp']}.json")
+            summary_path = os.path.join(PROJECT_ROOT, "artifacts", "reports", f"best_model_summary_{summary['timestamp']}.json")
             save_object(
                 file_path=summary_path,
                 obj=summary,

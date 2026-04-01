@@ -5,6 +5,7 @@ from datetime import datetime
 # Global timestamp - created once at module import time
 _LOG_TIMESTAMP = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
 _LOG_FILE_PATH = None
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def _get_log_file_path() -> str:
     '''
@@ -13,7 +14,8 @@ def _get_log_file_path() -> str:
     '''
     global _LOG_FILE_PATH
     if _LOG_FILE_PATH is None:
-        logs_dir = os.path.join(os.getcwd(), "logs")
+        # logs_dir = os.path.join(os.getcwd(), "logs")
+        logs_dir = os.path.join(PROJECT_ROOT, "logs")
         os.makedirs(logs_dir, exist_ok=True)
         _LOG_FILE_PATH = os.path.join(logs_dir, f"{_LOG_TIMESTAMP}.log")
     return _LOG_FILE_PATH

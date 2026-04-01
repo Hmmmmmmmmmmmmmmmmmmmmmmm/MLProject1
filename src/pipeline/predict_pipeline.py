@@ -1,5 +1,5 @@
 import sys
-from turtle import mode
+import os
 import pandas as pd
 
 from src.exception import CustomException, get_logger
@@ -8,20 +8,23 @@ from src.utils import load_object
 
 
 log = get_logger(__name__)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 class PredictPipeline:
     def __init__(self):
         pass
 
     def predict(self, features):
         try:
-            model_path = 'artifacts\model.pkl'
-            preprocessor_path = 'artifacts\preprocessor.pkl'
+            # model_path = 'artifacts\model.pkl'
+            model_path = os.path.join(PROJECT_ROOT, "artifacts", "model.pkl")
+            # preprocessor_path = 'artifacts\preprocessor.pkl'
+            preprocessor_path = os.path.join(PROJECT_ROOT, "artifacts", "preprocessor.pkl")
             model = load_object(file_path = model_path)
             preprocessor = load_object(file_path = preprocessor_path)
             data_scaled = preprocessor.transform(features)
             predicted_value = model.predict(data_scaled)
             return predicted_value
-        
         except Exception as e:
             log.error(f"Error occurred: {e}", exc_info=True)
             raise CustomException(e,sys)

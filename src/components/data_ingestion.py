@@ -10,12 +10,16 @@ from dataclasses import dataclass
 from src.components.model_training import ModelTrainConfig, ModelTrainer
 
 log = get_logger(__name__)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path: str=os.path.join('artifacts','train.csv')
-    test_data_path: str=os.path.join('artifacts','test.csv')
-    raw_data_path: str=os.path.join('artifacts','data.csv')
+    # train_data_path: str=os.path.join('artifacts','train.csv')
+    train_data_path: str=os.path.join(PROJECT_ROOT, 'artifacts', 'train.csv')
+    # test_data_path: str=os.path.join('artifacts','test.csv')
+    test_data_path: str=os.path.join(PROJECT_ROOT, 'artifacts', 'test.csv')
+    # raw_data_path: str=os.path.join('artifacts','data.csv')
+    raw_data_path: str=os.path.join(PROJECT_ROOT, 'artifacts', 'data.csv')
 
 class DataIngestion:
     def __init__(self):
@@ -33,7 +37,8 @@ class DataIngestion:
             # form of data acceptance/ reading aka
             # method be it mongo DB or any other database
             # df = pd.read_csv('notebook\data\StudentsPerformance.csv')
-            df = pd.read_csv(os.path.join("notebook", "data", "StudentsPerformance.csv"))
+            # df = pd.read_csv(os.path.join("notebook", "data", "StudentsPerformance.csv"))
+            df = pd.read_csv(os.path.join(PROJECT_ROOT, "notebook", "data", "StudentsPerformance.csv"))
             log.info('Exported/ Read the Dataset')
 
 

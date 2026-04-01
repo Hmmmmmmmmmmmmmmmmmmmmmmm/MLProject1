@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+import os
 
 
 
@@ -30,6 +31,7 @@ setup(
     author='Hmmmmmmmmmmmmmmmmmmmmmmm',
     author_email='aftabaqueelkhan@gmail.com',
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt'),
+    # install_requires=get_requirements('requirements.txt'),
+    install_requires=get_requirements(os.path.join(os.path.dirname(__file__), 'requirements.txt')),
 
 )

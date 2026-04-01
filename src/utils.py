@@ -22,6 +22,7 @@ from src.logger import get_logger
 import dill
 
 log = get_logger(__name__)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def save_object(file_path, obj, type = "dill"):
     try:
@@ -91,7 +92,8 @@ def evaluate_models(
 
     if save_results:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        report_dir = os.path.join("artifacts", "reports")
+        # report_dir = os.path.join("artifacts", "reports")
+        report_dir = os.path.join(PROJECT_ROOT, "artifacts", "reports")
         os.makedirs(report_dir, exist_ok=True)
         csv_path = os.path.join(report_dir, f"baseline_model_scores_{timestamp}.csv")
         results_df.to_csv(csv_path, index=False)
@@ -186,7 +188,8 @@ def get_regression_metrics(y_true, y_pred, model_name=None, verbose=True, plot=F
         # plt.tight_layout()
         # plt.show()
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        report_dir = os.path.join("artifacts", "reports", "regression_plots")
+        # report_dir = os.path.join("artifacts", "reports", "regression_plots")
+        report_dir = os.path.join(PROJECT_ROOT, "artifacts", "reports", "regression_plots")
         os.makedirs(report_dir, exist_ok=True)
         plt.figure(figsize=(16,5))
         plt.subplot(1,2,1)
@@ -283,7 +286,8 @@ def tune_models(
 
             continue
             # raise CustomException(e,sys)
-    report_dir = os.path.join("artifacts", "reports")
+    # report_dir = os.path.join("artifacts", "reports")
+    report_dir = os.path.join(PROJECT_ROOT, "artifacts", "reports")
     os.makedirs(report_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     tuned_list = []
