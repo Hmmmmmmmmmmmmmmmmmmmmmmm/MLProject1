@@ -1,12 +1,37 @@
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-catboost
-xgboost
-dill
-flask
-gunicorn
+# numpy
+# pandas
+# matplotlib
+# seaborn
+# scikit-learn
+# catboost
+# xgboost
+# dill
+# flask
+# gunicorn
+Flask==3.1.3
+scikit-learn==1.7.2
+numpy==2.2.6
+pandas==2.3.3
+joblib==1.5.3
+xgboost==3.2.0
+catboost==1.2.10
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.6.0
+graphviz==0.21
+dill==0.4.1
+threadpoolctl==3.6.0
+jinja2==3.1.6
+itsdangerous==2.2.0
+MarkupSafe==3.0.3
+blinker==1.9.0
+gunicorn==25.3.0
+cycler==0.12.1
+contourpy==1.3.2
+fonttools==4.62.1
+packaging==25.0
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+pillow==12.1.1
 
 -e .
