@@ -176,5 +176,6 @@ curl -X POST http://127.0.0.1:5000/predict \
 - Gradient Boosting: R2 0.8680342160816621
 
 #### PS:
-- this a project made majorly to understand the ins and outs of an end to end ML project, future plans for this include a decent deployment + a basic Docker image for containerization
+- this a project made majorly to understand the ins and outs of an end to end ML project, future plans for this include a decent deployment + a basic Docker image for containerization.
+- and yes i do plan to solidify the pipeline to ensure input (None or improper data type) is handled.
 
