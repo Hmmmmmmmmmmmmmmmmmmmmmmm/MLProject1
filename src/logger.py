@@ -2,38 +2,33 @@ import logging
 import os
 from datetime import datetime
 
-# LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-# logs_path = os.path.join(os.getcwd(),"logs",LOG_FILE)
-# os.makedirs(logs_path,exist_ok=True)
+# Global timestamp - created once at module import time
+_LOG_TIMESTAMP = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+_LOG_FILE_PATH = None
 
-# LOG_FILE_PATH = os.path.join(logs_path,LOG_FILE)
-
-# logging.basicConfig(
-
-#     filename = LOG_FILE_PATH,
-#     format = "[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
-#     level=logging.INFO,
-
-# )
-
-
-# if __name__ == '__main__':
-#     logging.info("Logging Test")
+def _get_log_file_path() -> str:
+    '''
+    Returns the shared log file path for all loggers.
+    Creates logs directory if it doesn't exist.
+    '''
+    global _LOG_FILE_PATH
+    if _LOG_FILE_PATH is None:
+        logs_dir = os.path.join(os.getcwd(), "logs")
+        os.makedirs(logs_dir, exist_ok=True)
+        _LOG_FILE_PATH = os.path.join(logs_dir, f"{_LOG_TIMESTAMP}.log")
+    return _LOG_FILE_PATH
 
 def get_logger(logger_name: str = __name__) -> logging.Logger:
     '''
     Returns a logger configured to log to both file and console.
+    Uses a shared log file for the entire application session.
+
     Parameters:
         logger_name (str): Name of the logger (usually __name__ of the module)
     Returns:
         logging.Logger: Configured logger instance
     '''
-    #create log file if absent
-    logs_dir = os.path.join(os.getcwd(), "logs")
-    os.makedirs(logs_dir, exist_ok=True)
-    #timestamped log file:
-    log_file = f"{datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log"
-    log_file_path = os.path.join(logs_dir, log_file)
+    log_file_path = _get_log_file_path()
     #Logger:
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.INFO)
