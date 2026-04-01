@@ -1,5 +1,0 @@
-Model,R2,MAE,MSE,RMSE,Best Params
-Lasso,0.8806294788910886,4.209906847892164,29.04743161380874,5.389566922657955,"{'selection': 'random', 'max_iter': 1000, 'alpha': 0.01}"
-Ridge,0.880449094983054,4.214522832753154,29.09132594537562,5.3936375430108034,"{'solver': 'saga', 'alpha': 0.1}"
-Gradient Boosting,0.8694279330473228,4.365825997964607,31.77319785695734,5.636771935865184,"{'subsample': 0.6, 'n_estimators': 100, 'min_samples_split': 2, 'min_samples_leaf': 2, 'max_features': None, 'learning_rate': 0.05}"
-Random Forest,0.8478970862996339,4.592273360415643,37.01247965518517,6.083788265150684,"{'n_estimators': 500, 'min_samples_split': 8, 'min_samples_leaf': 4, 'max_features': 8, 'max_depth': 15, 'bootstrap': True}"
