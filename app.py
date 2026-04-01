@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import os
 import numpy as np
 import pandas as pd
 
@@ -37,4 +38,5 @@ def predict_datapoint():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",debug=False, port=5000)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT env variable
+    app.run(host="0.0.0.0", debug=False, port=port)
