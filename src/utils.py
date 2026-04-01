@@ -39,6 +39,12 @@ def save_object(file_path, obj, type = "dill"):
         log.error(f"Error occurred: {e}", exc_info=True)
         raise CustomException(e,sys)
 
+def load_object(file_path):
+    try:
+        with open(file_path,'rb') as file_obj:
+            return dill.load(file_obj)
+    except Exception as e:
+        raise CustomException(e,sys)
 
 def evaluate_models(
     X_train, y_train,
@@ -225,7 +231,7 @@ def tune_models(
             if verbose:
                 print(f"\n Tuning {name}...")
             if logs:
-                log.info(f"\n  Tuning {name}...")
+                log.info(f"Tuning {name}...")
             model = models[name]
             params = param_grids.get(name)
 
