@@ -74,7 +74,8 @@ class ModelTrainer:
                 "SVR": SVR(),
                 "Decision Tree": DecisionTreeRegressor(),
                 "Gradient Boosting": GradientBoostingRegressor(),
-                "AdaBoost": AdaBoostRegressor(),
+                # "AdaBoost": AdaBoostRegressor(), As sklearn by default set estimator to None gotta specify this
+                "AdaBoost": AdaBoostRegressor(estimator=DecisionTreeRegressor()),
                 "XGBoost": XGBRegressor(),
                 "CatBoost": CatBoostRegressor(verbose=0),
             }
@@ -207,6 +208,8 @@ class ModelTrainer:
 
             log.info(f"Best model saved: {best_model_name}")
             log.info(f"Best R2 Score: {best_r2_score:.4f}")
+
+            return summary
 
         except Exception as e:
             log.error(f"Error occurred: {e}", exc_info=True)

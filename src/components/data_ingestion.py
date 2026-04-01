@@ -1,11 +1,10 @@
 import os
 import sys
 
-from src.components import data_transformation
+from src.components.data_transformation import DataTransformation
 from src.exception import CustomException
 from src.logger import get_logger
 import pandas as pd
-from data_transformation import DataTransformation, DataTransformationConfig
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.model_training import ModelTrainConfig, ModelTrainer
@@ -33,7 +32,8 @@ class DataIngestion:
             # below part can be replaced with any
             # form of data acceptance/ reading aka
             # method be it mongo DB or any other database
-            df = pd.read_csv('notebook\data\StudentsPerformance.csv')
+            # df = pd.read_csv('notebook\data\StudentsPerformance.csv')
+            df = pd.read_csv(os.path.join("notebook", "data", "StudentsPerformance.csv"))
             log.info('Exported/ Read the Dataset')
 
 
