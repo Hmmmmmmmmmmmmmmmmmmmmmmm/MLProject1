@@ -218,3 +218,4 @@ notebook/catboost_info/
 logs/
 *.egg-info/
 ML_Project_1.egg-info/
+notebook\catboost_info

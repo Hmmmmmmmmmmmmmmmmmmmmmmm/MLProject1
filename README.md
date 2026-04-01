@@ -89,29 +89,9 @@ MLProject1/
 │       ├── *.csv
 │       ├── *.json
 │       └── regression_plots/
-├── catboost_info/
-│   ├── *.json
-│   ├── *.tsv
-│   ├── learn/
-│   │   └── events.out.tfevents*
-│   └── tmp/
-├── logs/
-├── ML_Project_1.egg-info/
-│   ├── dependency_links.txt
-│   ├── PKG-INFO
-│   ├── requires.txt
-│   ├── SOURCES.txt
-│   └── top_level.txt
 ├── notebook/
 │   ├── EDA_STUDENT_PERFORMANCE.ipynb
 │   ├── MODEL_TRAINING.ipynb
-│   ├── catboost_info/
-│   │   ├── catboost_training.json
-│   │   ├── learn_error.tsv
-│   │   ├── time_left.tsv
-│   │   ├── learn/
-│   │   │   └── events.out.tfevents*
-│   │   └── tmp/
 │   └── data/
 │       ├── Student_Performance11.csv
 │       └── StudentsPerformance.csv
