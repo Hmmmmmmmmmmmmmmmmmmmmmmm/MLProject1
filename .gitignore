@@ -212,5 +212,9 @@ __marimo__/
 
 
 # ML
+artifacts/reports/
 catboost_info/
-catboost_info
+notebook/catboost_info/
+logs/
+*.egg-info/
+ML_Project_1.egg-info/
