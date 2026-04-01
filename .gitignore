@@ -27,7 +27,8 @@ share/python-wheels/
 MANIFEST
 
 # Data/ artifacts
-artifacts
+# artifacts
+# we keeping em now
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -208,3 +209,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# ML
+catboost_info/
+catboost_info
